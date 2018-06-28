@@ -2,34 +2,22 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import reducer from './reducer';
 import registerServiceWorker from './registerServiceWorker';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
-import './reducer.js';
-
-
-ReactDOM.render(
-  <Provider store={store}>,
-  <App />,
-  </Provider>,
-  document.getElementById('root'));
-
-  store.dispatch(addComment('pierwszy komentarz'));
-  store.dispatch(addComment('drugi komentarz'));
-
-registerServiceWorker();
+import { addComment } from './actions'
 
 const store = createStore(reducer);
 
-const THUMB_DOWN_COMMENT = 'THUMB_UP_COMMENT'
+store.dispatch(addComment('pierwszy komentarz'));
+store.dispatch(addComment('drugi komentarz'));
 
-// kreator akcji:
-function thumbDownComment(commentId) {
-  return {
-    type: THUMB_DOWN_COMMENT,
-    id: commentId
-  }
-}
+ReactDOM.render(
+    <Provider store={store}>
+        <App />
+    </Provider>,
+    document.getElementById('root')
+);
 
-export THUMB_DOWN_COMMENT;
-export thumbDownComment;
+registerServiceWorker();
