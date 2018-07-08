@@ -1,13 +1,13 @@
 import React from 'react';
 import './App.css';
 import CommentsListContainer from './CommentsListContainer';
-import MessageInputContainer from './MessageInputContainer';
+import ThumbDownContainer from './ThumbDownContainer';
 
 const App = () => {
   return (
     <div className="App">
       <CommentsListContainer />
-      <MessageInputContainer />
+      <ThumbDownContainer />
     </div>
   );
 };
