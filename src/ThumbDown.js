@@ -1,5 +1,4 @@
 import React from 'react';
-import ThumbDownContainer from './ThumbDownContainer';
 
 class ThumbDown extends React.Component {
     state = {
